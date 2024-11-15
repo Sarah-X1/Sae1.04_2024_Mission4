@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>Mission 2</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="../../index.html"><img src="../img/logoKdou.png" alt="logo Kdou"></a></li>   
+
+                <li><a href="../../index.html">Accueil</a></li>
+                
+
+                <li class="menu-deroulant" >
+                    <a href="#">Mission</a>
+                    <ul class="sous-menu">
+                        <li><a href="Mission1.html">Mission 1</a></li>
+                        <li><a href="Mission2.html">Mission 2</a></li>               
+                        <li><a href="Mission3.html">Mission 3</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-deroulant">
+                    <a href="#">Autres</a>
+                    <ul class="sous-menu">
+                        <li><a href="../page/Conclusion.html">Conclusion</a></li>
+                        <li><a href="../page/Chapitre.html">Chapitre spécifique rapport </a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <header>
+            <h1>Mission 2</h1>
+        </header>
+        <main class="m2">
+            <section>
+				<h2>Contexte :</h2>
+           <p class="info">
+						Nous avons créer des requêtes avec le logiciel <strong>Low Code Access</strong>. Nous avons exploré diverses requêtes permettant d'extraire des informations sur les fournisseurs, produits et clients. Plusieurs défis ont été identifiés, notamment des <strong>incohérences</strong> dans les données et des <strong>erreurs d'enregistrements</strong> qui pourraient fausser les analyses.
+					</p>
+				
+						<h3>Identification des Fournisseurs et Produits</h3>
+						<ul>
+							<li>
+								Fournisseur Marie Delamare : Absence notée dans la base de données, possiblement remplacée par Joana Delamare. Une requête SQL a été 
+								élaborée pour rechercher son adresse.
+							</li>
+							<li>Fonction du Contact Fournisseur "Ma Maison" : Identifiée comme "Directeur du marketing".</li>
+						</ul>
+
+						<h3>Produits et Catégories</h3>
+						<ul>
+							<li>Produits d’Italie ou d’Allemagne vendus à 50€ ou moins ont été extraits, avec une attention particulière portée à la précision des noms de pays.</li>
+							<li>Catégories de produits des fournisseurs singapouriens : boissons et condiments, avec extraction de doublons.</li>
+						</ul>
+
+						<h3>Analyse des Commandes</h3>
+						<ul>
+							<li>Produits de type viande livrés à Paris et identification des clients nantais, en insistant sur la précision des noms.</li>
+							<li>Les erreurs d'orthographe dans les noms de pays (ex. Suède) ont été notées, ce qui pourrait fausser les résultats.</li>
+						</ul>
+
+						<h3>Évaluation des Clients</h3>
+						<ul>
+							<li>Identification de clients sans commandes, comme Mikal Pavbo, où une confusion de nom a été notée.</li>
+							<li>Analyse des commandes de Max Deschamps et d'autres clients pour obtenir des données précises.</li>
+						</ul>
+
+						<h3>Statistiques de Vente</h3>
+						<ul>
+							<li>Calcul des prix moyen, minimum et maximum des produits.</li>
+							<li>Identification de la fonction de contact fournisseur la plus fréquente, tout en prenant en compte les erreurs de frappe.</li>
+						</ul>
+
+						<h3>Conditionnement et Produits</h3>
+						<ul>
+							<li>Analyse des produits conditionnés en carton ou en verre, ainsi que du nombre de produits proposés par chaque fournisseur en bouteille.</li>
+						</ul>
+
+						<h3>Chiffre d'Affaires et Clientèle</h3> 
+						<ul>
+							<li>Estimation du chiffre d'affaires total à partir des prix des produits et leur remise plus les frais de port.</li>
+							<li>Identification des villes avec le plus grand nombre de clients.</li>
+						</ul>
+
+						<h3>Perspectives d'Amélioration</h3>
+						<ul>
+							<li>Normalisation des Données : Imposer une orthographe uniforme pour les pays, villes, et noms de clients pour éviter les doublons.</li>
+							<li>Validation des Saisies : Mettre en place des contrôles pour vérifier l’exactitude des données au moment de l’enregistrement.</li>
+							<li>Formation des Utilisateurs : Former les utilisateurs à la saisie des données pour minimiser les erreurs.</li>
+						</ul>
+					
+            </section>
+            <section>
+                <h2>Au moins <strong>4 indicateurs</strong> intéressants : </h2>
+                <h2>Énoncé :</h2> 
+                <ol>
+                    <li>
+                        <h3>Dans quelles villes la clientèle est-elle la plus importante ? Citer les 3 premières.</h3> 
+                        <ul>
+                            <li>Interprétation:<br> Il s'agit d'identifier les villes où Kdou a le plus grand nombre de clients, puis de lister les trois villes qui 
+                            comptent le plus de clients parmi l'ensemble.</li>
+                            <li>Résultat : 
+                                <table>
+                                    <thead>
+                                      <tr>
+                                        <th>VilleCli</th>
+                                        <th>Nombre De Commandes</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td>Nantes</td><td>141</td></tr>
+                                      <tr><td>Lille</td><td>133</td></tr>
+                                      <tr><td>Paris</td><td>115</td></tr>
+                                    </tbody>
+                                  </table>
+                                  
+                            </li>
+                            <li>QBE :</li>
+                        </ul>
+                          
+                                <img src="../img/qbenates.png" alt="QBE des ville ou la clientèle est-elle la plus importante">
+                            
+                     
+                    </li>
+
+                    <li>
+
+                        <h3>Dans la clientèle, est-ce qu’il y a des clients qui n’ont pas encore passé de commande ?</h3>
+                        <ul>
+                            <li>Interprétation: <br> On cherche à déterminer s'il existe des clients enregistrés dans la base de données de Kdou qui n'ont encore effectué aucun achat.</li>
+                            <li>Résultat:
+                                <table>
+                                    <thead>
+                                      <tr>
+                                        <th>CodeCli</th>
+                                        <th>ContactCli</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr><td>MAKOU</td><td>Maël Sporto</td></tr>
+                                      <tr><td>MORJU</td><td>Julie Kas</td></tr>
+                                    </tbody>
+                                  </table>
+                                  
+                            </li>
+                            <li>QBE :</li>
+                        </ul>
+                          
+                                <img src="../img/qbeclients.png" alt="qbe clientelle qui n'on pas encore passé commande">
+
+                            
+                       
+                    </li>
+
+                    <li>
+
+                        <h3>Donner le prix moyen de vente des produits, le prix minimum et le prix maximum.</h3>
+                        <ul>
+                            <li>Interprétation : <br> On cherche à calculer la valeur moyenne des prix des produits vendus, et à déterminer le prix le plus bas et le prix le plus élevé 
+                                auxquels les produits ont été achetés.</li>
+                            <li>
+                                Résultat:
+                                <table>
+                                    <thead>
+                                      <tr>
+                                        <th>Prix Moy</th>
+                                        <th>Prix Min</th>
+                                        <th>Prix Max</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>33,54 €</td>
+                                        <td>2,08 €</td>
+                                        <td>320,00 €</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  
+                            </li>
+                            <li>
+                                QBE : </li>
+                        </ul>
+                            
+                                <img src="../img/qbeprix.png" alt="QBE prix moyen, max et min">
+                           
+                       
+                    </li>
+
+                    <li>
+                        <h3>On veut le chiffre d’affaires total généré avec les informations dont on dispose.</h3> 
+                        <ul>
+                            <li>Interprétation:<br> On cherche à calculer le chiffre d'affaires total en additionnant les revenus générés par les ventes en prennent en compte les remises 
+                            à partir des données financières disponibles.</li>
+                            <li>
+                                Résultat:
+                                <table>
+                                    <thead>
+                                      <tr>
+                                        <th>Chiffres d'affaires</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>1 656 539,38 €</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </li>
+                            <li>
+                                QBE :
+                            </li>
+                        </ul>
+                           
+                    <img src="../img/qbecchiffredaffaires.png" alt="QBE chiffre d'affaires">
+                    
+                    </li>
+                </ol>
+             </section>
+        </main>
+
+
+        <footer>
+
+
+            <div class="co">
+                <h1>Coordonnées</h1>
+                <p>
+                  <a href="https://www.google.com/maps/search/?q=123+Rue+de+l'Entreprise,+75000+Paris,+France" target="_blank">123 Rue de l'Entreprise, 75000 Paris, France</a><br>
+                    Téléphone : 01 23 45 67 89<br>
+                    Email : <a href="mailto:info@entreprise.fr">info@entreprise.fr</a>
+                </p>
+            </div>
+
+            <div class="con">
+                <h1>À propos</h1>
+                <p>
+                    Kdou est un grossiste dédié à fournir aux professionnels une large gamme de produits de qualité,
+                    adaptés à leurs besoins. Engagée dans l'excellence et la satisfaction client, Kdou s'efforce de
+                    faciliter l'accès aux meilleures solutions pour soutenir votre activité.
+                </p>
+            </div>
+
+            <div class="fol">
+                <h1>Suivez-nous</h1>
+
+                <ul class="logofooter">
+                    <li><a href="https://www.facebook.com/entreprise" target="_blank"><img src="../img/facebook.png" alt="logo facebook"></a></li>
+                    <li><a href="https://www.twitter.com/entreprise" target="_blank"><img src="../img/twitter.png" alt="logo X"></a></li>
+                    <li><a href="https://www.instagram.com/entreprise" target="_blank"><img src="../img/instagram.png" alt="logo Insta"></a></li>
+                    <li><a href="https://www.linkedin.com/company/entreprise" target="_blank"><img src="../img/linkedin.png" alt="logo linkdin"></a></li>
+                </ul>
+
+            </div>
+
+            <div class="credit">
+                <p>Kdou, Inc. © 2024. Tout droit réservé</p>
+            </div>
+        </footer>
+    </body>
+</html>

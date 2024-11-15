@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Mission 3</title>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="../../index.html"><img src="../img/logoKdou.png" alt="logo Kdou"></a></li>
+
+      <li><a href="../../index.html">Accueil</a></li>
+
+
+      <li class="menu-deroulant">
+        <a href="#">Mission</a>
+        <ul class="sous-menu">
+          <li><a href="Mission1.html">Mission 1</a></li>
+          <li><a href="Mission2.html">Mission 2</a></li>
+          <li><a href="Mission3.html">Mission 3</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-deroulant">
+        <a href="#">Autres</a>
+        <ul class="sous-menu">
+          <li><a href="../page/Conclusion.html">Conclusion</a></li>
+          <li><a href="../page/Chapitre.html">Chapitre spécifique rapport </a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+  <header>
+    <h1>Mission 3</h1>
+  </header>
+  <main class="m3">
+    <section class="contextem3">
+      <h2>Contexte :</h2>
+
+      <p class="info">
+        Avec le <strong>SQL</strong>, nous pouvons avoir des réponses à des questions plus <strong>complexes</strong>.
+      </p>
+    </section>
+
+    <h2>Présentation de deux indicateurs pour chaque thème :</h2>
+
+    <ul>
+      <li>
+        <h3>Dessert et boisson :</h3>
+
+        <b>Question 1b: Quels sont les pays de provenance de ces catégories ?</b>
+
+        <br>
+
+      <li>
+        Interprétation:
+        <br>
+        On cherche à fournir une liste des pays d'origine des fournisseurs qui proposent des produits classés dans les
+        catégories boissons et desserts.<br>
+      </li>
+      <li>
+        Construction de requête :
+        <br>
+        On commence par sélectionner les tables pertinentes, à savoir Fournisseur (pays) et Produit (code catégorie).
+        Ensuite, on effectue une jointure interne pour
+        combiner les données des fournisseurs avec celles des produits qu'ils offrent. Puis, on applique des filtres
+        pour ne garder que les produits qui appartiennent
+        aux catégories concernées. Enfin, on affiche la liste des pays.
+        <br>
+      </li>
+      <li>
+        SQL:
+        <br>
+        <img src="../img/sql1b.png" alt="requete sql">
+      </li>
+      <li>
+        Résultat :
+        <br>
+        <table>
+          <thead>
+            <tr>
+              <th>Pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Allemagne</td>
+            </tr>
+            <tr>
+              <td>Australia</td>
+            </tr>
+            <tr>
+              <td>Australie</td>
+            </tr>
+            <tr>
+              <td>Brésil</td>
+            </tr>
+            <tr>
+              <td>Canada</td>
+            </tr>
+            <tr>
+              <td>Etats Unis</td>
+            </tr>
+            <tr>
+              <td>Etats-Unis</td>
+            </tr>
+            <tr>
+              <td>Finlande</td>
+            </tr>
+            <tr>
+              <td>France</td>
+            </tr>
+            <tr>
+              <td>Pays-Bas</td>
+            </tr>
+            <tr>
+              <td>Royaume Uni</td>
+            </tr>
+            <tr>
+              <td>Royaume-Uni</td>
+            </tr>
+            <tr>
+              <td>Singapour</td>
+            </tr>
+            <tr>
+              <td>Suède</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+
+    </ul>
+
+    <ul>
+      <li>
+        <b>Question 1c. Mission 3 : Chiffres d’affaires de la catégorie dessert et boisson</b>
+        <br>
+
+      <li>
+        Construction de requête :
+        <br>
+        On veut le chiffre d'affaires généré par catégorie desserts ou catégorie boisson. <br>
+        On sélectionne les tables DetailCommande (prix et quantité) et Produit (code catégorie). Ensuite, on effectue
+        une jointure interne pour combiner les données
+        des commandes avec celles des produits correspondants en utilisant la référence du produit. Puis, on applique un
+        filtre pour ne garder que les produits qui
+        appartiennent à la catégorie des boissons. Enfin, on calcule et affiche le chiffre d'affaires total des boissons
+        en multipliant le prix unitaire par la
+        quantité commandée puis par les remises. Même démarche pour calculer le chiffre d'affaires des Desserts.
+        <br>
+      </li>
+      <li>
+        SQL et Résultats :
+        <br>
+        <div class="imgboissons">
+          <img src="../img/sql1cboisson.png" alt="requete sql">
+          <img src="../img/res1cboisson.png" alt="resultat sql">
+        </div>
+        <div class="imddessert">
+          <img src="../img/sql1cdessert.png" alt="requete sql">
+          <img src="../img/res1cdessert.png" alt="resultat sql">
+        </div>
+      </li>
+      
+    </ul>
+
+    <ul>
+      <li>
+        <h3> Offre kdou:</h3>
+        <b>Question 2b de la mission 3.
+          Combien y a-t-il de produits non commandés par catégorie ?</b>
+        <br>
+
+      <li>
+        Construction de requête:
+        <br>
+        La requête SQL est composée de deux parties : une sous-requête et une requête principale. La sous-requête
+        sélectionne tous les identifiants des produits
+        commandés à partir de la table DetailCommande. La requête principale effectue une soustraction entre 'les
+        identifiants de tous les produits qu'ils soient
+        commandés ou non' et 'les identifiants des produits obtenus grâce à la sous-requête'. Elle sélectionne le nom de
+        la catégorie (NomCateg) et utilise la fonction
+        d’agrégation COUNT pour compter les produits par catégorie. Enfin, les résultats sont regroupés par le nom de la
+        catégorie avec GROUP BY C.NomCateg.<br>
+      </li>
+      <li>
+        SQL ET Résultats :
+        <br>
+        <img src="../img/sqlcb.png" alt="requete sql">
+        <table>
+          <thead>
+            <tr>
+              <th>NomCateg</th>
+              <th>Compte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="NomCateg">Boissons</td>
+              <td data-label="Compte">27</td>
+            </tr>
+            <tr>
+              <td data-label="NomCateg">Condiments</td>
+              <td data-label="Compte">2</td>
+            </tr>
+            <tr>
+              <td data-label="NomCateg">Desserts</td>
+              <td data-label="Compte">3</td>
+            </tr>
+            <tr>
+              <td data-label="NomCateg">Pâtes et céréales</td>
+              <td data-label="Compte">2</td>
+            </tr>
+            <tr>
+              <td data-label="NomCateg">Poissons et fruits de mer</td>
+              <td data-label="Compte">2</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+     
+    </ul>
+
+    <ul>
+      <li>
+        <b>Question 2c : Quels sont les pays qui ont une offre importante de produits ?</b>
+        <br>
+
+      <li>
+        Construction de la requête:
+        <br>
+        Elle sélectionne le pays de chaque fournisseur et le nombre de produits associés à ce pays.
+        Elle joint les tables Fournisseur et Produit via la colonne NoFour pour relier les fournisseurs à leurs produits.
+        Elle regroupe les résultats par pays de fournisseur, puis elle compte combien de produits chaque fournisseur a dans chaque pays.
+        Ensuite, elle ordonne les résultats par le nombre de produits de manière décroissante.
+        Enfin, elle ne renvoie que les 7 premiers pays avec le plus grand nombre de produits grâce à TOP 7. <br>
+      </li>
+      <li>
+        <p>Voici la liste avec la requête SQL des pays qui fournissent le plus de produit Kdou :
+          <br>
+        </p>
+        </li>
+      <li>
+        SQL et Résultats :
+        <br>
+
+        <img src="../img/res2c.png" alt="requete sql">
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Pays</th>
+              <th scope="col">NombreProduits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Royaume-Uni</td>
+              <td>18</td>
+            </tr>
+            <tr>
+              <td>Allemagne</td>
+              <td>11</td>
+            </tr>
+            <tr>
+              <td>Brésil</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>Canada</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>États-Unis</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>France</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>Australia</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>Japon</td>
+              <td>6</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </li>
+      
+    </ul>
+
+    <ul>
+      <li><h3>Provenance des produits</h3>
+        <b>3a. Pour l’Allemagne pays proche, quels sont les desserts ou boissons vendus à moins de 100 euros ?</b>
+        <br>
+      </li>
+      <li>
+        Construction de requête:
+        <br>
+        FROM Produit P: C'est cette table qui contient les produits. <br>
+        Puis INNER JOIN Fournisseur F ON P.NoFour = F.NoFour: La jointure entre les tables Produit et Fournisseur est effectuée via la colonne NoFour, qui est une clé de fournisseur. <br> 
+        WHERE F.Pays LIKE 'Allemagne': prend les produits provenant de fournisseurs situés en Allemagne. <br>
+        Pour le premier AND, la condition limite les résultats aux produits dont le prix unitaire est inférieur à 100. <br>
+        AND (P.CodeCateg = 1 OR P.CodeCateg = 3): condition filtre les produits selon leur catégorie. <br>
+        Vous sélectionnez les produits dont le CodeCateg est soit 1, soit 3. <br>
+        Ainsi elle retourne la référence, le nom, le prix unitaire, et le code de catégorie des produits provenant de fournisseurs en Allemagne, 
+        dont le prix est inférieur à 100 et dont la catégorie est soit 1, soit 3. <br>
+      </li>
+      <li>
+        <p>
+          Voici la liste des desserts ou des boissons vendus à moins de 100€ venant des fournisseurs d’Allemagne :
+          <br>
+        </p>
+      </li>
+      
+      
+
+      
+      <li>
+        SQL ET Résultats :
+        <br>
+        <img src="../img/res3a.png" alt="requete sql">
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">RefProd</th>
+                <th scope="col">NomProd</th>
+                <th scope="col">PrixUnit</th>
+                <th scope="col">CodeCateg</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>25</td>
+                <td>NuNuCa Nuß-Nougat-Creme</td>
+                <td>11,67 €</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>26</td>
+                <td>Gumbär Gummibärchen</td>
+                <td>26,03 €</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>27</td>
+                <td>Schoggi Schokolade</td>
+                <td>36,58 €</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>75</td>
+                <td>Rhönbräu Klosterbier</td>
+                <td>86,46 €</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </li>
+    
+    </ul>
+
+
+    <ul>
+      <li>
+        <b>Question 3b : Quels fournisseurs vendent uniquement des boissons ou des desserts ?</b>
+        <br>
+      <li>
+        Construction de requête:
+        <br>
+        On a besoin tout d’abord de la table fournisseur. Puis, on fait la jointure entre Fournisseur et Produit par l'attribut NoFour (le numéro du fournisseur). <br>
+        WHERE P.CodeCateg IN (1, 3): prend que les produits dont le CodeCateg est 1 ou 3. <br>
+        AND F.NoFour NOT IN: Cette condition exclut les fournisseurs qui fournissent des produits dans d'autres catégories que 1 ou 3. <br>
+        La sous-requête suivante sélectionne les fournisseurs qui fournissent des produits dans des catégories autres que 1 ou 3. 
+        Ainsi, la requête principale sélectionne les fournisseurs qui fournissent uniquement des produits dans les catégories 1 ou 3, en excluant ceux qui fournissent aussi des produits dans d'autres catégories.
+        Elle utilise une sous-requête avec NOT IN pour s'assurer que le fournisseur ne fournit pas de produits dans des catégories qui ne sont ni 1 ni 3.
+        <br>
+      </li>
+<li>
+        <p>Voici la liste des fournisseurs qui vendent uniquement des boissons et des desserts :
+          <br>
+        </p>
+      </li>
+      <li>
+        SQL et Résultats :
+        <br>
+
+        <img src="../img/res3b.png" alt="requete sql">
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">NoFour</th>
+                <th scope="col">Société</th>
+                <th scope="col">Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>8</td>
+                <td>Specialty Biscuits, Ltd.</td>
+                <td>Melvin Wilson</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Refrescos Americanas LTDA</td>
+                <td>Carlos Diaz</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Heli Süßwaren GmbH & Co. KG</td>
+                <td>Petra Winkler</td>
+              </tr>
+              <tr>
+                <td>18</td>
+                <td>Aux joyeux ecclésiastiques</td>
+                <td>Guylène Nodier</td>
+              </tr>
+              <tr>
+                <td>22</td>
+                <td>Zaanse Snoepfabriek</td>
+                <td>Dirk Luchte</td>
+              </tr>
+              <tr>
+                <td>23</td>
+                <td>Karkki Oy</td>
+                <td>Anne Heikkonen</td>
+              </tr>
+              <tr>
+                <td>30</td>
+                <td>Faro Madeiras</td>
+                <td>Claudio Sole</td>
+              </tr>
+              <tr>
+                <td>31</td>
+                <td>Westpac Corporation</td>
+                <td>Charlie Colley</td>
+              </tr>
+              <tr>
+                <td>32</td>
+                <td>Perdigão</td>
+                <td>Helena Carbo</td>
+              </tr>
+              <tr>
+                <td>33</td>
+                <td>Globalis</td>
+                <td>Bob Rego</td>
+              </tr>
+              <tr>
+                <td>34</td>
+                <td>Losad</td>
+                <td>Hug Jhonson</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+     
+    </ul>
+
+    <ul>
+      <li>
+        <h3>Thème la clientèle </h3>
+        <b>4a. Un client nantais “Le verre à soi” souhaite savoir quels autres clients nantais commandent aussi des
+          produits en Allemagne pour envisager de futures livraisons groupées.</b>
+        <br>
+      <li>
+        Construction de requête:
+        <br>
+        La requête sélectionne tous les clients qui ne sont pas associés à la société "Verre à soi" et qui sont situés dans la ville Nantes. <br>
+        INNER JOIN Commande CM ON C.CodeCli = CM.CodeCli: Joindre la table Client à la table Commande via CodeCli, qui relie chaque client à ses commandes. <br>
+        INNER JOIN DetailCommande DC ON CM.NoCom = DC.NoCom: Joindre la table Commande à la table DetailCommande via NoCom, ce qui permet de lier chaque commande aux détails des produits qu'elle contient. <br>
+        INNER JOIN Produit P ON DC.RefProd = P.RefProd: Joindre la table DetailCommande à la table Produit via RefProd, ce qui permet de lier chaque produit de la commande aux informations du produit. <br>
+        INNER JOIN Fournisseur F ON P.NoFour = F.NoFour: Joindre la table Produit à la table Fournisseur via NoFour, ce qui relie chaque produit à son fournisseur. <br>
+        Puis WHERE F.Pays = 'Allemagne'filtre les fournisseurs pour ne sélectionner que ceux situés en Allemagne. <br>
+        DISTINCT C.* : permet de s'assurer qu'on n'affiche chaque client qu'une seule fois, même si un client a plusieurs commandes correspondant à ces critères. <br>
+        Ainsi, cette requête renvoie une liste de clients qui sont situés à Nantes, qui ne sont pas associés à la société "Verre à soi", 
+        et qui ont passé des commandes pour des produits fournis par des fournisseurs basés en Allemagne. Les données renvoyées proviennent de la table Client.
+        <br>
+      </li>
+<li>
+        <p>
+          La société “Le verre à soi” peut envisager de commander avec :
+          <br>
+        </p>
+      </li>
+      <li>
+        SQL ET Résultats :
+        <br>
+        <img src="../img/sql4a.png" alt="requete sql">
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>CodeCli</th>
+                <th>SociétéCli</th>
+                <th>ContactCli</th>
+                <th>AdresseCli</th>
+                <th>VilleCli</th>
+                <th>CPCli</th>
+                <th>Pays</th>
+                <th>Téléphone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>COMMI</td>
+                <td>Pedro's house</td>
+                <td>Pedro Afonso</td>
+                <td>67, rue des Cinquante Otages</td>
+                <td>Nantes</td>
+                <td>44000</td>
+                <td>France</td>
+                <td>06.40.67.88.88</td>
+              </tr>
+              <tr>
+                <td>DRACD</td>
+                <td>Table nantaise</td>
+                <td>Sven Ottlieb</td>
+                <td>54, rue Royale</td>
+                <td>Nantes</td>
+                <td>44000</td>
+                <td>France</td>
+                <td>06.40.32.21.21</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </li>
+    
+    </ul>
+    <ul>
+      <li>
+        <b>4c. Certains clients n’ont jamais eu la remise la plus importante de 25%. Qui sont-ils ?</b>
+        <br>
+      <li>
+        Construction de requête:
+        <br>
+        La requête principale sélectionne les colonnes CodeCli, SocieteCli, et ContactCli de la table Client (alias C). <br>
+        Elle filtre les clients en excluant ceux dont CodeCli apparaît dans la sous-requête. <br>
+        Les CodeCli des clients ayant passé des commandes où l'un des produits a une remise de 0.25. <br>
+        Ensuite, on fait INNER JOIN DetailCommande DC ON Com.NoCom = DC.NoCom: on relie la table Commande (alias Com) à la table DetailCommande (alias DC) via le numéro de commande NoCom. <br>
+        Puis, WHERE DC.Remige = 0.25 : on filtre les détails des commandes pour ne retenir que celles où la remise sur les produits est de 0.25. <br>
+        DISTINCT récupère une liste de CodeCli unique, c'est-à-dire que chaque client est inclus une seule fois, même s'il a plusieurs commandes avec une remise de 0.25. <br>
+        Ainsi la requête renvoie une liste des clients (identifiés par CodeCli) dont la société et le contact sont affichés, 
+        mais uniquement ceux qui n'ont pas passé de commande contenant un produit avec une remise de 0.25.
+        <br>
+      </li>
+<li>
+        <p>Voici la requête SQL et les clients qui n'ont jamais touché une remise de 25% :
+          <br>
+        </p>
+      </li>
+      <li>
+        SQL et Résultats :
+        <br>
+
+        <img src="../img/sql4c.png" alt="requete sql">
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>CodeCli</th>
+                <th>SociétéCli</th>
+                <th>ContactCli</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ALYAD</td>
+                <td>Chez Bouxou</td>
+                <td>Alyssa Duranta</td>
+              </tr>
+              <tr>
+                <td>MAKOU</td>
+                <td>Le marikou</td>
+                <td>Maël Sporto</td>
+              </tr>
+              <tr>
+                <td>MORJU</td>
+                <td>Les Morainières</td>
+                <td>Julie Kas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </li>
+    
+    </ul>
+
+    <h2 class="titre_indicateur"><u>Nos indicateurs personnels :</u></h2>
+
+    <details>
+      <summary>
+        <h4 class="summary">Afshar Mohammed Ajmaldeen</h4>
+      </summary>
+      <b>Quelles sont les fournisseurs qui proposent des produits avec remise, mais dont les produits ne viennent pas
+        d’Allemagne ?</b>
+      <p>On peut remarquer que dans la base de données, un nombre important de produits viennent d’Allemagne. On se
+        demande donc que deviendra la base
+        de données sans les produits allemands. Et pour ajouter une touche dans la requête, on ajoute alors les remises.
+        <br>
+      </p>
+
+      <p>
+        Cette requête permettra à Kdou de mieux maximiser leurs bénéfices en se concentrant sur les remises offertes par
+        des fournisseurs. Elle
+        permet aussi de filtrer les fournisseurs (n’ayant pas d’importance, fournissant pas de bons produits, etc… ), ce
+        qui peut être important
+        pour la gestion. Et, elle permettra de mieux gérer les relations fournisseurs.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">NoFour</th>
+              <th scope="col">Société</th>
+              <th scope="col">Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Exotic Liquids</td>
+              <td>Alyssa Messata</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>New Orleans Cajun Delights</td>
+              <td>Shelley Burke</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Grandma Kelly's Homestead</td>
+              <td>Regina Murphy</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Tokyo Traders</td>
+              <td>Matti Nagase</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Cooperativa de Quesos 'Las Cabras'</td>
+              <td>Maëlo del Valle Saavedra</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Mayumi's</td>
+              <td>Mayumi Ohno</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Pavlova, Ltd.</td>
+              <td>Ian Devling</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Specialty Biscuits, Ltd.</td>
+              <td>Melvin Wilson</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>PB Knäckebröd AB</td>
+              <td>Lars Peterson</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Refrescos Americanas LTDA</td>
+              <td>Carlos Diaz</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>Formaggi Fortini s.r.l.</td>
+              <td>Elio Rossi</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>Norske Meierier</td>
+              <td>Beate Vield</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>Bigfoot Breweries</td>
+              <td>Cheryl Saylor</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>Svensk Sjöföda AB</td>
+              <td>Mikal Björn</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>Aux joyeux ecclésiastiques</td>
+              <td>Guylène Nodier</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>New England Seafood Cannery</td>
+              <td>Robb Merchant</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>Leka Trading</td>
+              <td>Chandra Leka</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>Lyngbysild</td>
+              <td>Alexis Petersen</td>
+            </tr>
+            <tr>
+              <td>22</td>
+              <td>Zaanse Snoepfabriek</td>
+              <td>Dirk Luchte</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>Karkki Oy</td>
+              <td>Anne Heikkonen</td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td>G'day, Mate</td>
+              <td>Wendy Mackenzie</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>Ma Maison</td>
+              <td>Jean-Guy Lauzon</td>
+            </tr>
+            <tr>
+              <td>26</td>
+              <td>Pasta Buttini s.r.l.</td>
+              <td>Giovanni Guidotti</td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td>Escargots Nouveaux</td>
+              <td>Joana Delamare</td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td>Gai pâturage</td>
+              <td>Eliane Noz</td>
+            </tr>
+            <tr>
+              <td>29</td>
+              <td>Forêts d'érables</td>
+              <td>Chantal Goulet</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Voici la requête SQL qui permet de voir les fournisseurs qui proposent des produits avec remise mais dont les
+        produits ne viennent pas d’Allemagne :</p>
+
+      <img src="../img/sqlafshar.png" alt="requête_sql_Afshar">
+
+      <p>Voici comment j’ai conçu la requête SQL ci-dessus: </p>
+      <ul>
+        <li>Tout d’abord, j’ai créé la sous-requête de sorte à obtenir tous les fournisseurs Allemand.</li>
+        <li>Ensuite, j’ai pris la table <b>Fournisseur</b> et j’ai fait une jointure avec la table <b>Produit</b>. Une
+          fois la jointure faite, j’ai refait une autre jointure entre la table <b>Produit</b> et la table
+          <b>DetailCommande</b>.</li>
+        <li>Puis, comme on veut les fournisseurs qui proposent des produits avec remise, il faut que les remises soient
+          strictement supérieures à 0. Et comme on ne veut pas que les produits viennent d’Allemagne, il faut prendre
+          tous les NoFour (Numéro Fournisseur) qui ne sont pas dans la sous-requête.</li>
+        <li>Enfin, je sélectionne toutes les informations nécessaires du fournisseur c’est-à-dire son NoFour (Numéro
+          Fournisseur), le nom de la société et son contact. </li>
+      </ul>
+
+
+    </details>
+
+    <details>
+      <summary>
+        <h4 class="summary">Johann Tixier</h4>
+      </summary>
+      <b>Quels sont les produits proposés par des fournisseurs français, qui n’ont jamais été commandés et qui
+        appartiennent à la catégorie “boissons” ?</b>
+      <p>On peut voir que dans la base de données il y a peu de fournisseurs français donc pour pouvoir les retrouver
+        plus facilement parmis tous ces pays et plus précisément les fournisseurs français qui proposent des boissons.
+      </p>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Société</th>
+              <th>NomProd</th>
+              <th>NomCateg</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aux joyeux ecclésiastiques</td>
+              <td>Côte de Blaye</td>
+              <td>Boissons</td>
+            </tr>
+            <tr>
+              <td>Aux joyeux ecclésiastiques</td>
+              <td>Chartreuse verte</td>
+              <td>Boissons</td>
+            </tr>
+            <tr>
+              <td>Globalis</td>
+              <td>Siropa Fraisea</td>
+              <td>Boissons</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Cette requête ci-dessous va donc survivre à afficher que les fournisseurs français qui vende des boissons :
+      </p>
+
+      <img src="../img/sqljohann.png" alt="requête_sql_Tixier">
+
+      <p>La requêtes SQL et donc divisé en deux INNER JOIN contenue dans la commande FROM :</p>
+      <ul>
+        <li>Le premier permet de joindre la table <b>Fournisseur</b> à la table <b>Produit</b> par la colonne NoFour.
+        </li>
+        <li>Le deuxième permet lui de joindre la table <b>Produit</b> à la table <b>Categorie </b> par la colonne
+          CodeCateg.
+          
+          <p>Ensuite, j’utilise la commande WHERE pour permettre de trier les information que l’on n’a besoin pour cela on
+            utilisé deux commande LIKE avec une commande AND pour les regrouper entre elle : </p>
+        </li>
+
+        
+
+        <li>Le premier LIKE sert à choisir seulement les fournisseurs français.</li>
+        <li>Le deuxième LIKE permet de choisir uniquement les produits de catégorie “boisson”. </li>
+      </ul>
+
+      <p>Puis, pour terminer, j’utilise la commande SELECT afin de choisir les
+        colonnes que je sélectionne pour afficher dans la requête, j’ai donc choisi
+        pour cette requête d'utiliser les colonnes Societe de la table
+        <b>Fournisseur</b>, NomProd de la table <b>Produit</b> et NomCateg de la table <b>Catégorie</b>.
+      </p>
+
+
+    </details>
+
+    <details>
+      <summary>
+        <h4 class="summary">Sarah Xu</h4>
+      </summary>
+      <b>Quels sont les produits qui ne sont plus en stock mais dont on a acheté en grande quantité ?</b>
+      <p>Nous cherchons à connaître les produits qui ne sont plus en stock mais qui sont populaires.</p>
+      <p>Elle permet à KDOU de savoir quels sont les produits qui doivent être réapprovisionnés rapidement car ils ont
+        déjà été achetés en grande quantité donc ils seront potentiellement demandés dans une prochaine commande, dans
+        la commande d’un autre client. KDOU pourra donc faire payer instantanément ces produits aux clients qui
+        souhaitent les acheter dans l’immédiat. L’attente du client sera diminuée, donc cela permettra sa satisfaction.
+      </p>
+      <h5><u>Résultat:</u></h5>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>RefProd</th>
+              <th>NOMPRODUITPOPULAIRE</th>
+              <th>NoFour</th>
+              <th>PLUSENSTOCK</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>29</td>
+              <td>Thüringer Rostbratwurst</td>
+              <td>12</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>53</td>
+              <td>Perth Pasties</td>
+              <td>24</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>On a besoin de la table Produit pour avoir la références du produit, le nom (renommé NOMPRODUITPOPULAIRE), le
+        numéro du fournisseur et la quantité en stock (renommée PLUSENSTOCK). Ces alias sont nommés ainsi pour faciliter
+        la compréhension des valeurs.</p>
+      <p>On a également besoin de la table DetailCommande pour avoir la quantité commandée et permettre la jointure avec
+        la table Produit par la clé RefProd.</p>
+      <p>La valeur d’UniteStock doit être égale à 0 car il n’y a pas de stock et la QteCom doit être supérieure à 100
+        pour être un produit vendu en grande quantité.</p>
+      <h5><u>Requête finale:</u></h5>
+      <img src="../img/sqlsarah.png" alt="requête_sql_Xu">
+
+
+    </details>
+
+    <details>
+      <summary>
+        <h4 class="summary">Niloy Chandra</h4>
+      </summary>
+      <b>Combien y a-t-il de produits non commandés par catégorie ? </b>
+      <p>Nous cherchons à connaître le nombre de produits qui n'ont pas encore été achetés, en les regroupant selon leur
+        catégorie.</p>
+      <p>Cette requête permet à Kdou de cibler ses efforts marketing sur des catégories spécifiques afin d'augmenter les
+        ventes. De plus, elle permet d'identifier les catégories ou produits à mettre en avant avec des remises pour
+        favoriser l'écoulement des stocks. Enfin, elle permet d'ajuster les commandes auprès des fournisseurs, ce qui
+        peut réduire les frais de transport et les dépenses inutiles.</p>
+      <h5><u>Résultat:</u></h5>
+
+      <table>
+        <thead>
+          <tr>
+            <th>NomCateg</th>
+            <th>Compte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="NomCateg">Boissons</td>
+            <td data-label="Compte">27</td>
+          </tr>
+          <tr>
+            <td data-label="NomCateg">Condiments</td>
+            <td data-label="Compte">2</td>
+          </tr>
+          <tr>
+            <td data-label="NomCateg">Desserts</td>
+            <td data-label="Compte">3</td>
+          </tr>
+          <tr>
+            <td data-label="NomCateg">Pâtes et céréales</td>
+            <td data-label="Compte">2</td>
+          </tr>
+          <tr>
+            <td data-label="NomCateg">Poissons et fruits de mer</td>
+            <td data-label="Compte">2</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Notre requête SQL est la combinaison d’une sous requête et une requête principale.</p>
+      <h5><u>Construction de la sous-requête SELECT :</u></h5>
+      <p>Avec cette requête, on sélectionne tous les Identifications des produits commandés.</p>
+      <p>On utilise la table :</p>
+      <ul>
+        <li><b>DetailCommande : </b> Cette table enregistre les informations liées à une commande. Plus particulièrement
+          l’identifiant du produit commandé “RefProd”.</li>
+      </ul>
+      <p>On sélectionne :</p>
+      <ul>
+        <li>La colonne <b>RefProd</b> dans la table <u>DetailCommande</u>.</li>
+      </ul>
+
+      <h5><u>Construction de la requête principale SELECT :</u></h5>
+      <p>On utilise la table : </p>
+      <ul>
+        <li><b>Produit</b> : Pour avoir les identifiants de tous les produits commandés et non commandés</li>
+        <li><b>Categorie</b> : Pour aficher le nom de catégorie avec la joincture (INNER JOIN).</li>
+      </ul>
+
+      <p>On séléctionne : </p>
+      <ul>
+        <li>La colonne <b>NomCateg</b> dans la table <u>Categorie</u>.</li>
+        <li><b>Fonction d'agrégation</b> COUNT pour compter les lignes de la table.</li>
+      </ul>
+
+      <p>Enfin, on regroupe les nombres de Produit par leur Nom de catégories.</p>
+
+      <h5><u><b>Requête Finale :</b></u></h5>
+      <img src="../img/sqlchandra.png" alt="requête_sql_Niloy">
+    </details>
+
+
+
+
+
+  </main>
+
+
+
+
+
+
+  <footer>
+
+
+    <div class="co">
+      <h1>Coordonnées</h1>
+      <p>
+        <a href="https://www.google.com/maps/search/?q=123+Rue+de+l'Entreprise,+75000+Paris,+France" target="_blank">123
+          Rue de l'Entreprise, 75000 Paris, France</a><br>
+        Téléphone : 01 23 45 67 89<br>
+        Email : <a href="mailto:info@entreprise.fr">info@entreprise.fr</a>
+      </p>
+    </div>
+
+    <div class="con">
+      <h1>À propos</h1>
+      <p>
+        Kdou est un grossiste dédié à fournir aux professionnels une large gamme de produits de qualité,
+        adaptés à leurs besoins. Engagée dans l'excellence et la satisfaction client, Kdou s'efforce de
+        faciliter l'accès aux meilleures solutions pour soutenir votre activité.
+      </p>
+    </div>
+
+    <div class="fol">
+      <h1>Suivez-nous</h1>
+
+      <ul class="logofooter">
+        <li><a href="https://www.facebook.com/entreprise" target="_blank"><img src="../img/facebook.png"
+              alt="logo facebook"></a></li>
+        <li><a href="https://www.twitter.com/entreprise" target="_blank"><img src="../img/twitter.png" alt="logo X"></a>
+        </li>
+        <li><a href="https://www.instagram.com/entreprise" target="_blank"><img src="../img/instagram.png"
+              alt="logo Insta"></a></li>
+        <li><a href="https://www.linkedin.com/company/entreprise" target="_blank"><img src="../img/linkedin.png"
+              alt="logo linkdin"></a></li>
+      </ul>
+
+    </div>
+
+    <div class="credit">
+      <p>Kdou, Inc. © 2024. Tout droit réservé</p>
+    </div>
+  </footer>
+</body>
+
+</html>
