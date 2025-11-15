@@ -30,9 +30,6 @@ Présentation des résultats sous forme de rapports synthétiques
 
 ## Consignes des différentes missions
 
-Les Consignes des différentes missions se trouve 
-
-
----
+Les Consignes des différentes missions se trouvent ci-dessus 
 
 ---
