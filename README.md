@@ -1,8 +1,8 @@
 # Création d'un site web de A à Z
 > Création d'un **site web** d'une entreprise fictif KDOU
 > 
-> Projet réalisé dans le cadre de la **Saé1.04** à l’IUT Rives de Seine.
-> Ce site web synthétise les missions 1, 2, 3 et 4.
+> Projet réalisé dans le cadre de la **Saé1.04** mission 4 à l’IUT Rives de Seine.
+> Ce site web synthétise les missions 1, 2 et 3.
 > 
 > BUT1
 > Année : 2024-2025
