@@ -6,7 +6,7 @@
 > 
 > BUT1
 > Année : 2024-2025
-> Période : septembre - décembre
+> Période : Novembre 2024
 
 ---
 
