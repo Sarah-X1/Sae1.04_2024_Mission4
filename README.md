@@ -30,6 +30,6 @@ Présentation des résultats sous forme de rapports synthétiques
 
 ## Consignes des différentes missions
 
-Les Consignes des différentes missions se trouvent dans les pdf de Sujet
+Les Consignes des différentes missions se trouvent dans les pdf de SUJET
 
 ---
