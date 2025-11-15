@@ -19,11 +19,17 @@
 ## Description
 
 Durant cette Saé composée de 4 missions : 
-Outils utilisés : SQL / Access / Python / Excel / Looping / notepad++ / HTML5 / CSS3        
+
+Outils utilisés : SQL / Access / Python / Excel / Looping / notepad++ / HTML5 / CSS3  
+
 Compréhension de la base de données d'une entreprise fictif
+
 Construction du MCD et création d’une base de données Access à partir des problèmes relevé sur celle de base
+
 Rédaction de requêtes pour analyser des problématiques spécifiques
+
 Application d’analyses statistiques pour calculer des indicateurs
+
 Présentation des résultats sous forme de rapports synthétiques
 
 ---
